@@ -1,0 +1,15 @@
+version: 1
+
+shell:
+  type: bash
+
+deploy:
+  steps:
+    terraformInit:
+      after:
+        - terraform validate
+    terraformApply:
+      after:
+        - sudo apt-get update
+        - sudo apt install nginx -y
+        - sudo systemctl status nginx
