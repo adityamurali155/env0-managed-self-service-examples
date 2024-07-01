@@ -18,7 +18,7 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.main.id
-  security_groups = [aws_security_group.allow_all_sg.name]
+  vpc_security_group_ids = [aws_security_group.allow_all_sg.id]
   
   tags = {
     Name = "Example-instance"
