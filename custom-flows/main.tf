@@ -63,3 +63,7 @@ resource "aws_security_group" "allow_all_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+output "public-ip" {
+    value = aws_instance.web.public_ip
+}
