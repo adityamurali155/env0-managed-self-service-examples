@@ -9,4 +9,5 @@ deploy:
     terraformApply:
       after:
         - terraform output -json > tf_output.json
+        - pip install ansible
         - ansible-playbook attach_policy.yml
