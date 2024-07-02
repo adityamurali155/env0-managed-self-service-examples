@@ -6,3 +6,7 @@ deploy:
     terraformInit:
       after:
         - terraform validate
+    terraformApply:
+      after:
+        - terraform output -json > tf_output.json
+        - ansible-playbook attach_policy.yml
