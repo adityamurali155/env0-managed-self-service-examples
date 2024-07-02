@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "cf_bucket" {
   bucket = "custom-flow-bucket-2312"
 
-  tags {
+  tags = {
     Name = "Custom Flow Bucket"
   }
 }
