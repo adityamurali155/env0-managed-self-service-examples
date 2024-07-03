@@ -8,7 +8,10 @@ deploy:
         - terraform validate
     terraformApply:
       after:
-        - curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+        - wget https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+        - tar -xvzf go1.22.5.linux-amd64.tar.gz
+        - export PATH=$(pwd)/go1.22.5.linux-amd64/go/bin
+        - go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
         - chmod 755 ./tfsec
         - export PATH=$(pwd):$PATH
         - ./tfsec .
