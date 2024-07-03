@@ -8,7 +8,7 @@ deploy:
         - terraform validate
     terraformApply:
       after:
-        - terraform output -json > tf_output.json
-        - curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh  -o tfsec_install.sh
-        - ./tfsec_install.sh
-        - tfsec .
+        - curl -L "$(curl -s https://api.github.com/repos/tfsec/tfsec/releases/latest | grep -o -E "https://.+tfsec-linux-amd64")" -o tfsec
+        - chmod 755 ./tfsec
+        - export PATH=$(pwd):$PATH
+        - ./tfsec .
