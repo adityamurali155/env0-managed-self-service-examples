@@ -11,6 +11,7 @@ deploy:
         - terraform output -json > tf_output.json
         - pip install ansible boto3 botocore awscli
         - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+        - echo $AWS_ACCESS_KEY_ID
         - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
         - export AWS_DEFAULT_REGION=us-east-1
         - ansible-playbook attach_policy.yml
