@@ -9,7 +9,5 @@ deploy:
     terraformApply:
       after:
         - /bin/bash -c "curl -sL 'https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64' -o tfsec"
-        - /bin/bash -c "chmod 755 tfsec"
-        - /bin/bash -c "echo $(pwd)"
-        - /bin/bash -c "export PATH=$(pwd):$PATH"
-        - /bin/bash -c "tfsec ."
+        - /bin/bash -c "chmod 755 ./tfsec"
+        - /bin/bash -c "./tfsec ."
