@@ -14,7 +14,7 @@ resource "aws_instance" "tg-example" {
   subnet_id = data.aws_subnets.default.ids[0]
 
   tags = {
-    Name = "TerragruntExampleEC2"
+    Name = "ExampleEC2"
   }
 
 }
