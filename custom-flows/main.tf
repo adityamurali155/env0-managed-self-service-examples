@@ -8,7 +8,7 @@ data "aws_subnets" "default" {
     values = [data.aws_vpc.default.id]
   }
 }
-resource "aws_instance" "cf-example" {
+resource "aws_instance" "env0-cf-example" {
   ami           = "ami-04b70fa74e45c3917"
   instance_type = "t2.micro"
   subnet_id = data.aws_subnets.default.ids[0]
@@ -20,5 +20,5 @@ resource "aws_instance" "cf-example" {
 }
 
 output "instance_id" {
-  value = aws_instance.cf-example.id
+  value = aws_instance.env0-cf-example.id
 }
