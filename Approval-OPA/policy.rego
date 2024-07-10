@@ -1,10 +1,7 @@
-package s3policy
+package env0
 
-default allow = false
 
-allow {
-    input.resource_type == "aws_s3_bucket"
-    input.provider == "aws"
-    input.config.versioning.enabled == true
-    input.config.acl == "private"
+warn[format(rego.metadata.rule())]{
+    input.deploymentRequest.type == "destroy"
+    input.deploymentRequest.triggerName == "user" 
 }
