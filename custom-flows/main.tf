@@ -8,17 +8,17 @@ data "aws_subnets" "default" {
     values = [data.aws_vpc.default.id]
   }
 }
-resource "aws_instance" "tg-example" {
+resource "aws_instance" "cf-example" {
   ami           = "ami-04b70fa74e45c3917"
   instance_type = "t2.micro"
   subnet_id = data.aws_subnets.default.ids[0]
 
   tags = {
-    Name = "ExampleEC2"
+    Name = "custom-flows-EC2"
   }
 
 }
 
 output "instance_id" {
-  value = aws_instance.tg-example.id
+  value = aws_instance.cf-example.id
 }
