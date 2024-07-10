@@ -1,5 +1,6 @@
 package env0
 
+import data.env0
 
 warn[format(rego.metadata.rule())]{
     input.deploymentRequest.type == "destroy"
