@@ -7,7 +7,7 @@ deploy:
       after:
         - terraform validate
     terraformApply:
-      after:
+      before:
         - /bin/bash -c "curl -sL 'https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64' -o tfsec"
         - /bin/bash -c "chmod 755 ./tfsec"
         - /bin/bash -c "./tfsec ."
